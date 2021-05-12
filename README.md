@@ -14,6 +14,6 @@ The game starts with n string of ones, and Amir’s goal is to turn all the ones
  
  
 ### TO-DO List
-- [ ] Add To-do
-- [x] ....
+- [ ] Develop baseline solutions based on D&C and Dynamic Programming
+- [ ] ....
 
