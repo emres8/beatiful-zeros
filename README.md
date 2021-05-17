@@ -22,4 +22,4 @@ The game starts with n string of ones, and Amir’s goal is to turn all the ones
 - [ ] Demo Implementation - Levent
 - [ ] Presentation - all group
 - [ ] github repo update - ulas emre
-
+- [ ] Test cases 
