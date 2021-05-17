@@ -11,8 +11,8 @@ The game starts with n string of ones, and Amir’s goal is to turn all the ones
 ### Progression
 * 12 May First Meeting
 * 17 May Second Meeting 
-- Discussed Greedy Approach & Proof of Correctness of the suggested algorithm
-- Work-load is distributed among group members
+  * Discussed Greedy Approach & Proof of Correctness of the suggested algorithm
+  * Work-load is distributed among group members
   
  
  
