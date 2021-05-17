@@ -10,10 +10,16 @@ The game starts with n string of ones, and Amir’s goal is to turn all the ones
 
 ### Progression
 * 12 May First Meeting
- 
+* 17 May Second Meeting 
+- Discussed Greedy Approach & Proof of Correctness of the suggested algorithm
+- Work-load is distributed among group members
+  
  
  
 ### TO-DO List
-- [ ] Develop baseline solutions based on Greedy, D&C and Dynamic Programming
-- [ ] ....
+- [ ] Develop baseline solutions based on Greedy, D&C and Dynamic Programming -  burcu
+- [ ] [Further work on Proof of Correctness](https://docs.google.com/document/d/1eOTC2359NbwAgNOjKBcMZR5nXTQ7ITE5bAXADvZxS6k/edit) -burcu and her friends
+- [ ] Demo Implementation - Levent
+- [ ] Presentation - all group
+- [ ] github repo update - ulas emre
 
