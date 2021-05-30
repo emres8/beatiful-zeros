@@ -49,4 +49,21 @@ public class Operations {
 		}
 		System.out.println();
 	}
+	
+	public void solve() {
+		for(int i = 0; i < k+1; i++) {
+			for(int j = 0; j < n; j+=2*k+1) {
+				change(j);
+			}
+			if(string[n-1] == 0) {
+				System.out.println("Solved at try #" + i+1);
+				printString();
+				return;
+			}else {
+				for(int j = 0; j < n; j++) {
+					string[j] = n;
+				}
+			}
+		}
+	}
 }
