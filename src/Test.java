@@ -23,10 +23,15 @@ public class Test {
 //			}
 //			o.solve();
 //		}
-		for(int i = 0; i < 100; i++) {
-			int n = (int) Math.floor(Math.random()*190+10);
-			int k = (int) Math.floor(Math.random()*17+3);
-			Operations o = new Operations(n, k);
+		for(int i = 0; i < 10; i++) {
+			System.out.println("\n\n\nTest #" + (i+1));
+			int n = (int) (Math.random()*190+10);
+			int k = (int) (Math.random()*17+3);
+			int[] costs = new int[n];
+			for(int j = 0; j < n; j++) {
+				costs[j] = (int) (Math.random()*100);	//Costs are randomized between 0 and 100;
+			}
+			Operations o = new Operations(n, k, costs);
 			o.solve();
 		}
 

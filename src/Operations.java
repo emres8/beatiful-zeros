@@ -4,11 +4,15 @@ public class Operations {
 	private int[] string;
 	private int[] flips;
 	private int[] changes;
+	private int[] costs;
+	int totalCost;
 	
 	
-	public Operations(int n, int k) {
+	public Operations(int n, int k, int[] costs) {
+		totalCost = 0;
 		this.n = n;
 		this.k = k;
+		this.costs = costs;
 		fillArrays();
 	}
 	
@@ -39,6 +43,7 @@ public class Operations {
 			string[j] = 1 - string[j];
 			flips[j]++;
 		}
+		totalCost+=costs[i];
 		changes[i]++;
 	}
 	
@@ -51,19 +56,25 @@ public class Operations {
 	}
 	
 	public void solve() {
+		int minCost = Integer.MAX_VALUE;
+		int bestFirstIndex = 0;
 		for(int i = 0; i < k+1; i++) {
 			for(int j = 0; j < n; j+=2*k+1) {
 				change(j);
 			}
 			if(string[n-1] == 0) {
-				System.out.println("Solved at try #" + i+1);
+				minCost = Math.min(minCost, totalCost);
+				if(minCost == totalCost) {
+					bestFirstIndex = i;
+				}
+				System.out.println("Try #" + (i+1) + " solves.\nTotal cost is: " + totalCost + ".\nThe string after solution (should be all 0): ");
 				printString();
-				return;
-			}else {
+				totalCost = 0;	//Reset cost
 				for(int j = 0; j < n; j++) {
-					string[j] = n;
+					string[j] = 1;	//Reset string
 				}
 			}
 		}
+		System.out.println("The minimum cost is " + minCost + " and it is achieved when the first index to be changed is " + bestFirstIndex);
 	}
 }
