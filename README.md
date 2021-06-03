@@ -10,8 +10,8 @@
 
  Date  | Details
 ------------- | -------------
-12 May|First meeting, analyzing problem
-17 May| Discussed Greedy Approach & Proof of Correctness of the suggested algorithm <br> Work-load is distributed among group members
+12 May |First meeting, analyzing problem
+17 May | Discussed Greedy Approach & Proof of Correctness of the suggested algorithm <br> Work-load is distributed among group members
 2 June | Started to prepare presentation <br> Revision on the code
 3 June | Presentation, repository finalized
 ## TO-DO List ##
