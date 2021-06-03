@@ -8,10 +8,27 @@ The game starts with n string of ones, and Amir’s goal is to turn all the ones
 ## The Algorithm & Correctness
 
 
-#### Terminology: 
+### Terminology: ###
 * Flip: stands for both active and passive alteration of a bit.<br>
 * Change: used when chosen bits are actively altered with their costs added <br>
 * Toggle: used for collateral passive alterations <br>
+
+#### Previous Attempts and Enhancement of the Algorithm ###
+We seperately evaluate below stratetigies to tackle the given problem. 
+##### Divide & Conquer ##### 
+  * Inapplicable
+  * An operation on the subproblem has impact outside its domain 
+  * Boundary elements could not have been changed.
+* Dynamic Programming
+  * Similarly, a solution to a subproblem in most cases was incompatible with the main problem. 
+* Greedy Approach 
+
+The Divide and Conquer discipline was inapplicable:
+An operation on the subproblem had impact outside its domain.
+nged.
+
+
+
 
 #### Lemma 1: The number of toggle is same for all bits 
 Proof: <br>
@@ -34,8 +51,3 @@ We must ensure the first bit must be flipped once. Hence, the algorithm selects 
 We skipped 2k bits [p+1,p+2k] and we want to show those bits are indeed flipped. The left k bits [p+1,p+k] are flipped by the toggle on p, and the right k bits [p+k+1,p+2k]  are flipped by the change on p+2k+1. Then continue to change bits with indexes  p + 4k + 2, p + 6k + 3 until there is not any bit with value 1. Since we started from the beginning of the bit string, we only check whether the last bit has value 0 to stop iterations. This shows all bits are toggled exactly one time.
 <br>
 Initially we chose one of the k+1 bits. This shows that we have k+1 possible solutions. The algorithm calculates the cost for each of them then selects the solution with the minimum cost.
-
-
-### Further Improvements
-
-FILL
