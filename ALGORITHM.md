@@ -34,3 +34,8 @@ We must ensure the first bit must be flipped once. Hence, the algorithm selects 
 We skipped 2k bits [p+1,p+2k] and we want to show those bits are indeed flipped. The left k bits [p+1,p+k] are flipped by the toggle on p, and the right k bits [p+k+1,p+2k]  are flipped by the change on p+2k+1. Then continue to change bits with indexes  p + 4k + 2, p + 6k + 3 until there is not any bit with value 1. Since we started from the beginning of the bit string, we only check whether the last bit has value 0 to stop iterations. This shows all bits are toggled exactly one time.
 <br>
 Initially we chose one of the k+1 bits. This shows that we have k+1 possible solutions. The algorithm calculates the cost for each of them then selects the solution with the minimum cost.
+
+
+### Further Improvements
+
+FILL
