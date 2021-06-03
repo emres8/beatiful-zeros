@@ -52,13 +52,13 @@ For two consecutive bits, M and M+1, they will be toggled simultaneously unless 
 Proof: <br>
 For a solution S, the last element needs to be toggled, so a bit from the last k+1 bits must have been changed, coming to the first element by changing every (2k+1)th bit from the initial bit, we managed to flip the first elements as well. That would mean any solution S can be reduced to a version where no bit is changed more than once. 
 
-#### The Algorithm: <br>
+### The Algorithm: <br>
 Lemma 1 and 2 together implies a particular solution of the problem needs to toggle each bit exactly one time.  There are finitely many such solutions and our strategy is simply to compute the corresponding cost values of all such solutions. Then, we compare results and select the solution with the minimum cost. Listing all available solutions is not a difficult task, since we know that the first bit must be toggled exactly one time. To provide that, we select one of the first k+1 bits and change it first. This means we have k+1 available solutions. Then the algorithm skips the next 2k bits and toggles the next bit iteratively until the last bit has the value 0. For this to happen the last changed bit must be between [n-k-1,n].
 
 ### Complexities:
 Since this algorithm involves changing each bit (total of n bits) for k+1 times, total complexity is O(nk). Since we only use two arrays of size n for implementation, our space complexity is O(n).
 
-#### Correctness: 
+### Correctness: 
 This section aims to show our solution indeed toggles all the bits to 0.<br>
 We must ensure the first bit must be flipped once. Hence, the algorithm selects one of the first k+1 bits and changes it first. Suppose we changed the bit with index p. The fact that 0<p<=k+1 and the definition of the k proves the first k+1 bits are flipped. Next bit to change is the one with index   p + 2k + 1.
 We skipped 2k bits [p+1,p+2k] and we want to show those bits are indeed flipped. The left k bits [p+1,p+k] are flipped by the toggle on p, and the right k bits [p+k+1,p+2k]  are flipped by the change on p+2k+1. Then continue to change bits with indexes  p + 4k + 2, p + 6k + 3 until there is not any bit with value 1. Since we started from the beginning of the bit string, we only check whether the last bit has value 0 to stop iterations. This shows all bits are toggled exactly one time.
