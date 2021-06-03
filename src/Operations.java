@@ -2,8 +2,6 @@
 public class Operations {
 	private int n, k;
 	private int[] string;
-	private int[] flips;
-	private int[] changes;
 	private int[] costs;
 	int totalCost;
 	
@@ -13,23 +11,20 @@ public class Operations {
 		this.n = n;
 		this.k = k;
 		this.costs = costs;
-		fillArrays();
+		fillArray();
 	}
 	
-	private void fillArrays() {
+	private void fillArray() {
 		string = new int[n];
-		flips = new int[n];
-		changes = new int[n];
 		for(int i = 0; i < n; i++) {
 			string[i] = 1;
-			flips[i] = 0;
-			changes[i] = 0;
 		}
 	}
 	
 	/**
-	 * Flips the bits on the range [i-k, i+k] and records the flips.
-	 * Does nothing if i is out of bounds.
+	 * Flips the bits on the range [i-k, i+k]. Does nothing
+	 * if i is out of bounds. Adds to the totalCost the
+	 * cost of changing i.
 	 * @param i		the center index
 	 */
 	public void change(int i) {
@@ -41,40 +36,84 @@ public class Operations {
 		int right = Math.min(n-1, i+k);
 		for(int j = left; j <= right; j++) {
 			string[j] = 1 - string[j];
-			flips[j]++;
 		}
 		totalCost+=costs[i];
-		changes[i]++;
 	}
 	
 	
-	public void printString() {
+	private void printString() {
 		for(int i = 0; i < n; i++) {
 			System.out.print(string[i]);
 		}
 		System.out.println();
 	}
 	
-	public void solve() {
-		int minCost = Integer.MAX_VALUE;
-		int bestFirstIndex = 0;
-		for(int i = 0; i < k+1; i++) {
-			for(int j = 0; j < n; j+=2*k+1) {
-				change(j);
-			}
-			if(string[n-1] == 0) {
-				minCost = Math.min(minCost, totalCost);
-				if(minCost == totalCost) {
-					bestFirstIndex = i;
-				}
-				System.out.println("Try #" + (i+1) + " solves.\nTotal cost is: " + totalCost + ".\nThe string after solution (should be all 0): ");
+	/**
+	 * Uses our algorithm starting at index p and changes indexes
+	 * p + (2k+1)*t <= n, for t = 1, 2, 3, ...
+	 * Restores the string to all 1s afterwards.
+	 * Does not print anything.
+	 * @param p			First index to be changed
+	 * @return			Whether starting with p gives a solution
+	 */
+	public boolean solveAtP(int p) {
+		return solveAtP(p, false);
+	}
+	
+	/**
+	 * Uses our algorithm starting at index p and changes indexes
+	 * p + (2k+1)*t <= n, for t = 1, 2, 3, ...
+	 * Restores the string to all 1s afterwards.
+	 * @param p			First index to be changed
+	 * @param print		true to print information about steps
+	 * @return			Whether starting with p gives a solution
+	 */
+	public boolean solveAtP(int p, boolean print) {
+		if(p < 0 || p >= n) {
+			System.out.println("Out of bounds.");
+			return false;
+		}
+		for(int j = p; j < n; j+=2*k+1) {
+			change(j);
+		}
+		boolean solved = string[n-1] == 0; //No bit is changed twice, so if the last bit is 0, we have a solution.
+		if(print) {
+			if(!solved) {
+				System.out.println("Could not solve at index " + p);
 				printString();
-				totalCost = 0;	//Reset cost
-				for(int j = 0; j < n; j++) {
-					string[j] = 1;	//Reset string
-				}
 			}
 		}
-		System.out.println("The minimum cost is " + minCost + " and it is achieved when the first index to be changed is " + bestFirstIndex);
+		for(int i = 0; i < n; i++) {
+			string[i] = 1;
+		}
+		return solved;	
 	}
+	
+	/**
+	 * Uses solveAtP at each index from 0 to k, finds 
+	 * the minimum cost of all valid solutions.
+	 * Does not print anything.
+	 * @return			the minimum cost of the valid solutions
+	 */
+	public int solve() {
+		return solve(false);
+	}
+	
+	/**
+	 * Uses solveAtP at each index from 0 to k, finds 
+	 * the minimum cost of all valid solutions.
+	 * @param print		true to print the string after *each* alteration
+	 * @return			the minimum cost of the valid solutions
+	 */
+	public int solve(boolean print) {
+		int minCost = Integer.MAX_VALUE;
+		for(int i = 0; i < k+1; i++) {
+			if(solveAtP(i, print)) {
+				minCost = Math.min(minCost, totalCost);
+			}
+			totalCost = 0;
+		}
+		return minCost;
+	}
+
 }
