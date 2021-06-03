@@ -4,7 +4,10 @@ Amir loves binary strings, and whenever he gets bored, he makes a new challenge 
 The game starts with n string of ones, and Amir’s goal is to turn all the ones to zeros. There are some rules that govern the game which are as follow:
 1. You are allowed to change a bit in the sequence, however, all the bits with the most k distance would be toggled. For example, if k=2, then if you change a specific bit in the sequence the next two adjacent bits are also toggled.
 2. The cost of changing the value of i-th bit is equal to ci
-3. 
+
+## The Algorithm
+
+
 #### Terminology: 
 * Flip: stands for both active and passive alteration of a bit.<br>
 * Change: used when chosen bits are actively altered with their costs added <br>
