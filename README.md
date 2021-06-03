@@ -26,9 +26,9 @@ The game starts with n string of ones, and Amir’s goal is to turn all the ones
 
 
 #### Terminology: 
-Toggle: stands for both active and passive alteration of a bit.<br>
+Flip: stands for both active and passive alteration of a bit.<br>
 Change: used when chosen bits are actively altered with their costs added <br>
-Flip: used for collateral passive alterations <br>
+Toggle: used for collateral passive alterations <br>
 
 
 
