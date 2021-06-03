@@ -5,7 +5,7 @@ The game starts with n string of ones, and Amir’s goal is to turn all the ones
 1. You are allowed to change a bit in the sequence, however, all the bits with the most k distance would be toggled. For example, if k=2, then if you change a specific bit in the sequence the next two adjacent bits are also toggled.
 2. The cost of changing the value of i-th bit is equal to ci
 
-## The Algorithm
+## The Algorithm & Correctness
 
 
 #### Terminology: 
