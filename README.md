@@ -2,7 +2,7 @@
 
 ## How to run the code ##
 
-    fill how to execude the code
+    The program consists of a two files: Operations.java and Test.java. To run the code, please run compile and link the files together.
 
 
 
@@ -20,7 +20,7 @@
 - [x] Demo Implementation - Levent
 - [x] Presentation - all group
 - [x] github repo update - ulas emre
-- [x] Test cases 
-
+- [x] Test cases - Levent
+- [x] Prototype Algorithm ????
 
 
