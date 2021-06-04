@@ -64,3 +64,19 @@ We must ensure the first bit must be flipped once. Hence, the algorithm selects 
 We skipped 2k bits [p+1,p+2k] and we want to show those bits are indeed flipped. The left k bits [p+1,p+k] are flipped by the toggle on p, and the right k bits [p+k+1,p+2k]  are flipped by the change on p+2k+1. Then continue to change bits with indexes  p + 4k + 2, p + 6k + 3 until there is not any bit with value 1. Since we started from the beginning of the bit string, we only check whether the last bit has value 0 to stop iterations. This shows all bits are toggled exactly one time.
 <br>
 Initially we chose one of the k+1 bits. This shows that we have k+1 possible solutions. The algorithm calculates the cost for each of them then selects the solution with the minimum cost.
+
+### A protoype algorithm with better run times: <br>
+This is an improved version of the previously described algorithm. Instead of changing each bit to 0 and then checking if that is a valid solution, it calculates by using arithmetics the k+1 bits that would give a possible solution. Then it compares the costs of each solution and returns the minimum. Cuts the run-time from O(nk) to O(n) for many inputs, and even to O(n/k) or O(k) for some inputs.<br>
+The algorithm makes use of some interesting results we encountered during testing. It divides the problem into cases and acts accordingly:
+#### Case 1: n <= k+1 <br>
+This would mean any individual bit would flip the entire string, so the optimal solution is the minimum cost between the bits. <br>
+#### Case 2: k + 2 < n <= 2k+1
+In this case we only have the option to change a single bit, as we do not have the option to add 2k+1 and flip another. The bit we choose must flip every other, so it must not be among the first n-k-1 bits or the last n-k-1 bits. Say that we chose a bit t among the first n-k-1 bits and changed it. The last bit to be flipped by this bit would be t+k <= n-1, so it does not change the n^th bit. Similarly, if we choose a bit t among the last n-k-1, t would at least be n-(n-k-1)+1 = k+2, which would not flip the first bit upon change. So, the bit we change must reside in (n-k, k+1).
+#### Case 3: (2k+1)|n 
+This means that there's only 1 solution, and it starts with changing the index k+1 and following. This creates an exact k-neighborhood among any changed bit. Changing something smaller than k+1, say k, would mean that there is 1 bit unflipper at the end. Following this, even changing 1 would create k many unflipped bits at the end, so we could not change anything among the end to have those flip, without flipping the previously flipped bits.
+#### Case 4: n%(2k+1) = C for some integer C such that 0 < C < 2k+1
+There are two subcases.
+##### Subcase 1: C <= k
+Starting with any bit t <= C gives a valid solution, as there are C many bits after the last changed bit, and incrementing t would carry the last changed bit, l, by 1. We could do that C times; if we carried 1 more time, l would be out of bounds and the second-to-last changed bit, p,  would not flip all bits at the end, as the distance between two changed bits is 2k+1 and we carried p from n-C-1 - (2k+1) = n-C-2k-2 to n-2k-1 by adding C+1 to it. Clearly, this leaves k bits unflipped, which cannot be fixed by a change as doing so would flip preivously flipped bits.
+##### Subcase 2: C > k
+In this case changing any bit < C-k would not give a solution. Suppose we changed the bit t, which is among the first C-k-1. Then we would change each bit of the form (2k+1)n + t. So, among the last C bits, t^th bit would change. This bit would flip k others, so the last bit to be flipped would be t+k < C-1, hence the last bit would not flip. So any possible solution would require changing the bits >= C-k.
