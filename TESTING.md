@@ -33,71 +33,69 @@ is not directly given for simplicity, but it is softcoded.
 ### Hand-written tests: 
 
 #### Option 1: 2k+1|n-1
-* n: 21 k: 2 <br>
-* Costs:1, 5, 3, 2, 4, 6, 8, 4, 5, 1, 0, 2, 1, 3, 1, 1, 4, 7, 5, 1, 4 <br>
-Starting at 1 gives the best solution. <br> 
-The minimum cost should be 12, and it is: 12 <br>
-The test took 826279 milliseconds. <br>
 
-n: 22 k: 3 <br>
-Costs:3, 5, 3, 2, 4, 6, 8, 4, 5, 1, 0, 2, 1, 3, 1, 1, 4, 7, 5, 1, 4, 6 <br>
-Starting at 1 gives the best solution. <br>
-The minimum cost should be 14, and it is: 14 <br>
-The test took 1395928 milliseconds. <br>
-
-
+    n: 21 k: 2 
+    Costs:1, 5, 3, 2, 4, 6, 8, 4, 5, 1, 0, 2, 1, 3, 1, 1, 4, 7, 5, 1, 4 
+    -------------------------------------------------------------------
+    Starting at 1 gives the best solution.  
+    The minimum cost should be 12, and it is: 12
+    The test took 826279 milliseconds. 
+---
+    n: 22 k: 3 
+    Costs:3, 5, 3, 2, 4, 6, 8, 4, 5, 1, 0, 2, 1, 3, 1, 1, 4, 7, 5, 1, 4, 6 
+    -------------------------------------------------------------------
+    Starting at 1 gives the best solution. 
+    The minimum cost should be 14, and it is: 14 
+    The test took 1395928 milliseconds. 
+    
 #### Option 2: n%(2k+1) < k+1
-n: 17 k: 3 <br>
-Costs: 4, 2, 9, 8, 4, 2, 6, 2, 9, 12, 14, 15, 18, 9, 0, 14, 17 <br>
-Starting at 1 gives the best solution. <br>
-The minimum cost should be 6, and it is: 6 <br>
-The test took 322616 milliseconds. <br>
-
-n: 11 k: 4 <br> 
-Costs: 2, 1, 11, 4, 7, 13, 6, 12, 21, 5, 11 <br>
-Starting at 1 gives the best solution. <br>
-The minimum cost should be 7, and it is: 7 <br>
-The test took 661462 milliseconds. <br>
+    n: 17 k: 3 
+    Costs: 4, 2, 9, 8, 4, 2, 6, 2, 9, 12, 14, 15, 18, 9, 0, 14, 17 
+    Starting at 1 gives the best solution. 
+    The minimum cost should be 6, and it is: 6 
+    The test took 322616 milliseconds. 
+---
+    n: 11 k: 4 
+    Costs: 2, 1, 11, 4, 7, 13, 6, 12, 21, 5, 11 
+    Starting at 1 gives the best solution. 
+    The minimum cost should be 7, and it is: 7 
+    The test took 661462 milliseconds. 
 
 #### Option 3: n%(2k+1) = k+1
-n: 18 k: 3 <br>
-Starting at 2 gives the best solution.<br>
-The minimum cost should be 12, and it is: 12 <br>
-The test took 40307 milliseconds.<br>
-
+    n: 18 k: 3 
+    Starting at 2 gives the best solution.
+    The minimum cost should be 12, and it is: 12 
+    The test took 40307 milliseconds.
 
 #### Option 4: n%(2k+1) > k+1
-n: 19 k: 3 <br>
-Costs: 4, 2, 9, 8, 4, 2, 6, 2, 9, 12, 14, 15, 18, 9, 0, 14, 17, 14, 2 <br>
-Starting at 2 gives the best solution.<br>
-The minimum cost should be 25, and it is: 25 <br>
-The test took 384348 milliseconds. <br>
-
-n: 16 k: 4 <br>
-Costs: 2, 1, 11, 4, 7, 13, 6, 12, 21, 5, 11, 5, 2, 4, 12, 2 <br>
-Starting at 4 gives the best solution.<br>
-The minimum cost should be 6, and it is: 6 <br>
-The test took 709375 milliseconds. <br>
+    n: 19 k: 3 
+    Costs: 4, 2, 9, 8, 4, 2, 6, 2, 9, 12, 14, 15, 18, 9, 0, 14, 17, 14, 2 
+    Starting at 2 gives the best solution.
+    The minimum cost should be 25, and it is: 25 
+    The test took 384348 milliseconds. 
+---
+    n: 16 k: 4 
+    Costs: 2, 1, 11, 4, 7, 13, 6, 12, 21, 5, 11, 5, 2, 4, 12, 2 
+    Starting at 4 gives the best solution.
+    The minimum cost should be 6, and it is: 6 
+    The test took 709375 milliseconds. 
 
 #### Option 5: n <= k+1
-
-n: 20 k: 19 <br>
-Costs: 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 0, 20, 30, 40, 50, 60, 70, 80, 90, 100 <br>
-Starting at 11 gives the best solution. <br>
-The minimum cost should be 0, and it is: 0 <br>
-The test took 57009 milliseconds. <br>
-
-n: 30 k: 29 <br>
-Costs:10, 20, 30, 40, 50, 60, 70, 80, 90, 9, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 <br>
-Starting at 10 gives the best solution. <br>
-The minimum cost should be 9, and it is: 9 <br>
-The test took 87655 milliseconds. <br>
-
+    n: 20 k: 19 
+    Costs: 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 0, 20, 30, 40, 50, 60, 70, 80, 90, 100 
+    Starting at 11 gives the best solution. 
+    The minimum cost should be 0, and it is: 0
+    The test took 57009 milliseconds.
+---
+    n: 30 k: 29 
+    Costs:10, 20, 30, 40, 50, 60, 70, 80, 90, 9, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 
+    Starting at 10 gives the best solution. 
+    The minimum cost should be 9, and it is: 9 
+    The test took 87655 milliseconds. 
 
 #### Option 6: k = 0
-
-n: 10 k: 0 <br>
-Costs: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 <br>
-Starting at 1 gives the best solution. <br>
-The minimum cost should be 55, and it is: 55 <br>
-The test took 54790 milliseconds. <br>
+    n: 10 k: 0 
+    Costs: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 
+    Starting at 1 gives the best solution. 
+    The minimum cost should be 55, and it is: 55 
+    The test took 54790 milliseconds. 
