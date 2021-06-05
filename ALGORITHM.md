@@ -44,13 +44,13 @@ Problem:The solutions with uneven distribution were unavailable.
 
 
 
-#### Lemma 1: The number of required toggle is same for all bits 
+#### Lemma 1: The number of required flip is same for all bits 
 Proof: <br>
-For two consecutive bits, M and M+1, they will be toggled simultaneously unless the bits M-k or M+k+1 are changed. Considering that these two initial bits will end up as “zeros”, these bits have to be toggled even times. Since the difference between the toggle numbers of two consecutive bits can at most be 1, they necessarily have to be toggled the same amount. That means if M-k is changed, so must M+k+1. Similarly, if M-k is unchanged, so won’t M+k+1. For a potential solution, it will be arranged that there will be 2k spacing between each “change”. In order to cover the first and last elements, one bit from the first k+1 bits from both left and right must be changed. 
+For two consecutive bits, M and M+1, they will be flipped simultaneously unless the bits M-k or M+k+1 are changed. Considering that these two initial bits will end up as “zeros”, these bits have to be flipped even times. Since the difference between the flip numbers of two consecutive bits can at most be 1, they necessarily have to be flipped the same amount. That means if M-k is changed, so must M+k+1. Similarly, if M-k is unchanged, so won’t M+k+1. For a potential solution, it will be arranged that there will be 2k spacing between each “change”. In order to cover the first and last elements, one bit from the first k+1 bits from both left and right must be changed. 
 
-#### Lemma 2: Any solution that requires more than one toggle on a specific bit can be reduced to another solution with at most one toggle switch per bit. 
+#### Lemma 2: Any solution that requires more than one flip on a specific bit can be reduced to another solution with at most one flip switch per bit. 
 Proof: <br>
-For a solution S, the last element needs to be toggled, so a bit from the last k+1 bits must have been changed, coming to the first element by changing every (2k+1)th bit from the initial bit, we managed to flip the first elements as well. That would mean any solution S can be reduced to a version where no bit is changed more than once. 
+For a solution S, the last element needs to be flipped, so a bit from the last k+1 bits must have been changed, coming to the first element by changing every (2k+1)th bit from the initial bit, we managed to flip the first elements as well. That would mean any solution S can be reduced to a version where no bit is changed more than once. 
 
 ### The Base Algorithm: <br>
 Lemma 1 and 2 together implies a particular solution of the problem needs to toggle each bit exactly one time.  There are finitely many such solutions and our strategy is simply to compute the corresponding cost values of all such solutions. Then, we compare results and select the solution with the minimum cost. Listing all available solutions is not a difficult task, since we know that the first bit must be toggled exactly one time. To provide that, we select one of the first k+1 bits and change it first. This means we have k+1 available solutions. Then the algorithm skips the next 2k bits and toggles the next bit iteratively until the last bit has the value 0. For this to happen the last changed bit must be between [n-k-1,n].
