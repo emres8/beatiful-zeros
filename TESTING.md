@@ -41,7 +41,7 @@ is not directly given for simplicity, but it is softcoded.
     Starting at 1 gives the best solution.  
     The minimum cost should be 12, and it is: 12
     The test took 826279 milliseconds. 
-    ###### Enhanced Algorithm ###### 
+    ###### Improved Algorithm ###### 
     The minimum cost should be 12, and it is: 12
     The test took 9430 milliseconds.
 ---
@@ -64,7 +64,7 @@ is not directly given for simplicity, but it is softcoded.
     Starting at 1 gives the best solution. 
     The minimum cost should be 6, and it is: 6 
     The test took 322616 milliseconds. 
-    ###### Enhanced Algorithm ###### 
+    ###### Improved Algorithm ###### 
     The minimum cost should be 6, and it is: 6
     The test took 2331 milliseconds.
 ---
@@ -75,7 +75,7 @@ is not directly given for simplicity, but it is softcoded.
     Starting at 1 gives the best solution. 
     The minimum cost should be 7, and it is: 7 
     The test took 661462 milliseconds. 
-    ###### Enhanced Algorithm ###### 
+    ###### Improved Algorithm ###### 
     The minimum cost should be 7, and it is: 7
     The test took 1973 milliseconds.
 
@@ -87,7 +87,7 @@ is not directly given for simplicity, but it is softcoded.
     Starting at 2 gives the best solution.
     The minimum cost should be 12, and it is: 12 
     The test took 40307 milliseconds.
-    ###### Enhanced Algorithm ###### 
+    ###### Improved Algorithm ###### 
     The minimum cost should be 12, and it is: 12
     The test took 2329 milliseconds.
 
@@ -99,7 +99,7 @@ is not directly given for simplicity, but it is softcoded.
     Starting at 2 gives the best solution.
     The minimum cost should be 25, and it is: 25 
     The test took 384348 milliseconds. 
-    ###### Enhanced Algorithm ###### 
+    ###### Improved Algorithm ###### 
     The minimum cost should be 25, and it is: 25
     The test took 3514 milliseconds.
 ---
@@ -110,7 +110,7 @@ is not directly given for simplicity, but it is softcoded.
     Starting at 4 gives the best solution.
     The minimum cost should be 6, and it is: 6 
     The test took 709375 milliseconds. 
-    ###### Enhanced Algorithm ###### 
+    ###### Improved Algorithm ###### 
     The minimum cost should be 6, and it is: 6
     The test took 2477 milliseconds.
 #### Option 5: n <= k+1
@@ -121,7 +121,7 @@ is not directly given for simplicity, but it is softcoded.
     Starting at 11 gives the best solution. 
     The minimum cost should be 0, and it is: 0
     The test took 57009 milliseconds.
-    ###### Enhanced Algorithm ###### 
+    ###### Improved Algorithm ###### 
     The minimum cost should be 0, and it is: 0
     The test took 2825 milliseconds.    
 ---
@@ -132,7 +132,7 @@ is not directly given for simplicity, but it is softcoded.
     Starting at 10 gives the best solution. 
     The minimum cost should be 9, and it is: 9 
     The test took 87655 milliseconds. 
-    ###### Enhanced Algorithm ###### 
+    ###### Improved Algorithm ###### 
     The minimum cost should be 9, and it is: 9
     The test took 4094 milliseconds.
 #### Option 6: k = 0
@@ -143,7 +143,7 @@ is not directly given for simplicity, but it is softcoded.
     Starting at 1 gives the best solution. 
     The minimum cost should be 55, and it is: 55 
     The test took 54790 milliseconds. 
-    ###### Enhanced Algorithm ###### 
+    ###### Improved Algorithm ###### 
     The minimum cost should be 55, and it is: 55
     The test took 2425 milliseconds.
     
