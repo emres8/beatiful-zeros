@@ -25,6 +25,7 @@
 - [x] Presentation - all group
 - [x] github repo update - ulas emre
 - [x] Test cases - Levent
-- [x] Prototype Algorithm ????
+- [x] Improved Algorithm
+- [ ] Presentation Demonstration
 
 
