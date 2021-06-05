@@ -4,6 +4,10 @@
 
     The program consists of a two files: Operations.java and Test.java. To run the code, please run compile and link the files together.
 
+## Deliverables
+    Baseline Algorithm further enhancements and Proof of Correctness can be found in ALGORITHM.md
+    Test Cases and corresponding runtimes can be found in TESTING.md
+        
 
 
 ## Progression 
