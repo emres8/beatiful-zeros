@@ -4,17 +4,17 @@ import java.util.Scanner;
 public class Test {
 
 	private static final int TEST_COUNT = 5;
-	private static boolean prototype = false;
+	private static boolean base = false;
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		outerloop:
 			while(true) {
 				String current;
-				if(prototype) current = "Prototype Algorithm";
-				else current = "Proven Algorithm";
+				if(base) current = "Base Algorithm";
+				else current = "Improved Algorithm";
 				System.out.println("\nEnter test option (-1 to exit):\n1) See our hand-written tests\n2) Do tests with random n, k and cost values (Does " + TEST_COUNT + " tests by default)\n"
-						+ "3) Enter n, k and costs for custom test\n4) Switch mode to use prototype or proven algorithm (Current: " + current + ")\n5) Compare two algorithms on 100 random inputs");
+						+ "3) Enter n, k and costs for custom test\n4) Switch mode to use improved or base algorithm (Current: " + current + ")\n5) Compare two algorithms on 100 random inputs");
 				int choice = scanner.nextInt();
 				switch(choice) {
 				case 1:
@@ -30,9 +30,9 @@ public class Test {
 					customTest(scanner);
 					break;
 				case 4:
-					if(prototype) System.out.println("\nChanging mode to proven algorithm.");
-					else System.out.println("\nChanging mode to prototype.");
-					prototype = !prototype;
+					if(base) System.out.println("\nChanging mode to improved algorithm.");
+					else System.out.println("\nChanging mode to base algorithm.");
+					base = !base;
 					break;
 				case 5:
 					compareAlgorithms(100);
@@ -55,14 +55,14 @@ public class Test {
 		Operations o = new Operations(21, 2, new int[]{1, 5, 3, 2, 4, 6, 8, 4, 5, 1, 0, 2, 1, 3, 1, 1, 4, 7, 5, 1, 4});
 		System.out.println("n: 21 k: 2");
 		startTime = System.nanoTime();
-		minCost = o.optionSolve(prototype);
+		minCost = o.optionSolve(base);
 		elapsedTime = System.nanoTime() - startTime;
 		System.out.println("The minimum cost should be 12, and it is: " + minCost + "\nThe test took " + elapsedTime + " milliseconds.");
 		if(minCost != 12)	fails++;
 		o = new Operations(22, 3, new int[] {3, 5, 3, 2, 4, 6, 8, 4, 5, 1, 0, 2, 1, 3, 1, 1, 4, 7, 5, 1, 4, 6});
 		System.out.println("n: 22 k: 3");
 		startTime = System.nanoTime();
-		minCost = o.optionSolve(prototype);
+		minCost = o.optionSolve(base);
 		elapsedTime = System.nanoTime() - startTime;
 		System.out.println("The minimum cost should be 14, and it is: " + minCost + "\nThe test took " + elapsedTime + " milliseconds.");
 		if(minCost != 14)	fails++;
@@ -70,14 +70,14 @@ public class Test {
 		o = new Operations(17, 3, new int[] {4, 2, 9, 8, 4, 2, 6, 2, 9, 12, 14, 15, 18, 9, 0, 14, 17});
 		System.out.println("n: 17 k: 3");
 		startTime = System.nanoTime();
-		minCost = o.optionSolve(prototype);
+		minCost = o.optionSolve(base);
 		elapsedTime = System.nanoTime() - startTime;
 		System.out.println("The minimum cost should be 6, and it is: " + minCost + "\nThe test took " + elapsedTime + " milliseconds.");
 		if(minCost != 6)	fails++;
 		o = new Operations(11, 4, new int[]{2, 1, 11, 4, 7, 13, 6, 12, 21, 5, 11});
 		System.out.println("n: 11 k: 4");
 		startTime = System.nanoTime();
-		minCost = o.optionSolve(prototype);
+		minCost = o.optionSolve(base);
 		elapsedTime = System.nanoTime() - startTime;
 		System.out.println("The minimum cost should be 7, and it is: " + minCost + "\nThe test took " + elapsedTime + " milliseconds.");
 		if(minCost != 7)	fails++;
@@ -85,7 +85,7 @@ public class Test {
 		o = new Operations(18, 3, new int[] {4, 2, 5, 9, 1, 11, 4, 16, 8, 6, 5, 13, 1, 0, 1, 2, 14, 15});
 		System.out.println("n: 18 k: 3");
 		startTime = System.nanoTime();
-		minCost = o.optionSolve(prototype);
+		minCost = o.optionSolve(base);
 		elapsedTime = System.nanoTime() - startTime;
 		System.out.println("The minimum cost should be 12, and it is: " + minCost + "\nThe test took " + elapsedTime + " milliseconds.");
 		if(minCost != 12)	fails++;
@@ -93,14 +93,14 @@ public class Test {
 		o = new Operations(19, 3, new int[] {4, 2, 9, 8, 4, 2, 6, 2, 9, 12, 14, 15, 18, 9, 0, 14, 17, 14, 2});
 		System.out.println("n: 19 k: 3");
 		startTime = System.nanoTime();
-		minCost = o.optionSolve(prototype);
+		minCost = o.optionSolve(base);
 		elapsedTime = System.nanoTime() - startTime;
 		System.out.println("The minimum cost should be 25, and it is: " + minCost + "\nThe test took " + elapsedTime + " milliseconds.");
 		if(minCost != 25)	fails++;
 		o = new Operations(16, 4, new int[]{2, 1, 11, 4, 7, 13, 6, 12, 21, 5, 11, 5, 2, 4, 12, 2});
 		System.out.println("n: 16 k: 4");
 		startTime = System.nanoTime();
-		minCost = o.optionSolve(prototype);
+		minCost = o.optionSolve(base);
 		elapsedTime = System.nanoTime() - startTime;
 		System.out.println("The minimum cost should be 6, and it is: " + minCost + "\nThe test took " + elapsedTime + " milliseconds.");
 		if(minCost != 6)	fails++;
@@ -108,14 +108,14 @@ public class Test {
 		o = new Operations(20, 19, new int[] {10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 0, 20, 30, 40, 50, 60, 70, 80, 90, 100});
 		System.out.println("n: 20 k: 19");
 		startTime = System.nanoTime();
-		minCost = o.optionSolve(prototype);
+		minCost = o.optionSolve(base);
 		elapsedTime = System.nanoTime() - startTime;
 		System.out.println("The minimum cost should be 0, and it is: " + minCost + "\nThe test took " + elapsedTime + " milliseconds.");
 		if(minCost != 0)	fails++;
 		o = new Operations(30, 29, new int[] {10, 20, 30, 40, 50, 60, 70, 80, 90, 9, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100});
 		System.out.println("n: 30 k: 29");
 		startTime = System.nanoTime();
-		minCost = o.optionSolve(prototype);
+		minCost = o.optionSolve(base);
 		elapsedTime = System.nanoTime() - startTime;
 		System.out.println("The minimum cost should be 9, and it is: " + minCost + "\nThe test took " + elapsedTime + " milliseconds.");
 		if(minCost != 9)	fails++;
@@ -123,7 +123,7 @@ public class Test {
 		o = new Operations(10, 0, new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10});
 		System.out.println("n: 10 k: 0");
 		startTime = System.nanoTime();
-		minCost = o.optionSolve(prototype);
+		minCost = o.optionSolve(base);
 		elapsedTime = System.nanoTime() - startTime;
 		System.out.println("The minimum cost should be 55, and it is: " + minCost + "\nThe test took " + elapsedTime + " milliseconds.");
 		if(minCost != 55)	fails++;
@@ -143,7 +143,7 @@ public class Test {
 			}
 			Operations o = new Operations(n, k, costs);
 			long startTime = System.nanoTime();
-			System.out.println("The minimum costs is: " + o.optionSolve(prototype));
+			System.out.println("The minimum costs is: " + o.optionSolve(base));
 			long elapsedTime = System.nanoTime() - startTime;
 			System.out.println("The test took " + elapsedTime + " milliseconds.");
 		}
@@ -166,7 +166,7 @@ public class Test {
 		}
 		Operations o = new Operations(n, k, costs);
 		long startTime = System.nanoTime();
-		System.out.println("The minimum costs is: " + o.optionSolve(prototype));
+		System.out.println("The minimum costs is: " + o.optionSolve(base));
 		long elapsedTime = System.nanoTime() - startTime;
 		System.out.println("The test took " + elapsedTime + " milliseconds.");
 	}

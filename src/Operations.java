@@ -129,11 +129,11 @@ public class Operations {
 	}
 
 	/**
-	 * Uses prototype algorithm to get a solution. Similar to solve(), but faster.
+	 * Uses the improved algorithm to get a solution. Similar to solve(), but faster.
 	 * @return		the minimum cost of the valid solutions
 	 * @time		Generally O(n), O(n/k) or O(k) for some inputs n, k.
 	 */
-	public int prototypeSolve() {
+	public int improvedSolve() {
 		if(n <= k+1) {	//Anything is a solution with a single change action, return the minimum of all costs. This option is O(n).
 			int minCost = Integer.MAX_VALUE;
 			for(int i = 0; i < n; i++) {	//O(n).
@@ -181,16 +181,16 @@ public class Operations {
 	}
 	/**
 	 * Uses an algorithm to solve the problem, indicated by the input boolean.
-	 * @param prototype
+	 * @param base
 	 * @return
 	 */
-	public int optionSolve(boolean prototype) {
-		if(prototype) 
-			return prototypeSolve();
+	public int optionSolve(boolean base) {
+		if(!base) 
+			return improvedSolve();
 		return solve(true);
 	}
 	
 	public boolean compareAlgorithms() {
-		return solve() == prototypeSolve();
+		return solve() == improvedSolve();
 	}
 }
