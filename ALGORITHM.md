@@ -65,8 +65,8 @@ We skipped 2k bits [p+1,p+2k] and we want to show those bits are indeed flipped.
 <br>
 Initially we chose one of the k+1 bits. This shows that we have k+1 possible solutions. The algorithm calculates the cost for each of them then selects the solution with the minimum cost.
 
-### A protoype algorithm with better run times: <br>
-After consideration of future improvements, we have come up with an improved version of the previously described algorithm. Instead of changing each bit to 0 and then checking if that is a valid solution, it calculates by using arithmetics the k+1 bits that would give a possible solution. Then it compares the costs of each solution and returns the minimum. Cuts the run-time from O(nk) to O(n), and even to O(n/k) or O(k) for some inputs.<br>
+### An improved algorithm with better run times: <br>
+After consideration of future improvements, we have come up with an improved version of the previously described algorithm. Instead of changing each bit to 0 and then checking if that is a valid solution, it calculates the k+1 bits that would give a possible solution. Then it compares the costs of each solution and returns the minimum, similar to the previous algorithm. Cuts the run-time from O(nk) to O(n), and even to O(n/k) or O(k) for some inputs.<br>
 The algorithm makes use of some interesting results we encountered during testing. It divides the problem into cases and acts accordingly:
 #### Case 1: n <= k+1 <br>
 This would mean any individual bit would flip the entire string, so the optimal solution is the minimum cost between the bits. This case is clearly O(n).<br>
@@ -81,6 +81,4 @@ Starting with any bit t <= C gives a valid solution, as there are C many bits af
 ##### Subcase 2: C > k
 In this case changing any bit < C-k would not give a solution. Suppose we changed the bit t, which is among the first C-k-1. Then we would change each bit of the form (2k+1)n + t. So, among the last C bits, t^th bit would change. This bit would flip k others, so the last bit to be flipped would be t+k < C-1, hence the last bit would not flip. So any possible solution would require changing the bits >= C-k. <br>
 
-So, for all cases, we know exactly which bits would provide us with possible solves Then, the only remaining task is to calculate the cost of each solution, and find the minimum. Please note that this algorithm does not directly turn each bit to 0, but only calculates the minimum cost of doing so in its current state. However, turning each bit to 0, given the optimal solution is also an O(n) operation, so it does not hurt the complexity. Space complexity stays the same.
-
-As the proof of correctness by cases is informal, this algorithm is stated as a prototype.
+So, for all cases, we know exactly which bits would provide us with possible solves Then, the only remaining task is to calculate the cost of each solution, and find the minimum. Please note that this algorithm does not directly turn each bit to 0, but only calculates the minimum cost of doing so in its current state. However, turning each bit to 0, given the optimal solution is also an O(n) operation, so it does not hurt the complexity. Space complexity stays at O(n).
