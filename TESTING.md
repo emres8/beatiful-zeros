@@ -146,4 +146,18 @@ is not directly given for simplicity, but it is softcoded.
     ###### Enhanced Algorithm ###### 
     The minimum cost should be 55, and it is: 55
     The test took 2425 milliseconds.
-
+    
+    
+    
+Setup | Runtime
+--| -- 
+ n: 21 k: 2 | 9430 milliseconds
+ n: 22 k: 3 | 2194 milliseconds
+ n: 17 k: 3 | 2331 milliseconds
+ n: 11 k: 4 | 1973 milliseconds
+ n: 18 k: 3 | 2329 milliseconds
+ n: 19 k: 3 | 3514 milliseconds
+ n: 16 k: 4 | 2477 milliseconds
+ n: 20 k:19 |2825 milliseconds
+ n: 30 k: 29 | 4094 milliseconds
+n: 10 k: 0 | 2425 milliseconds
