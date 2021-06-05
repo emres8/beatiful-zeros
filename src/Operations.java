@@ -85,7 +85,7 @@ public class Operations {
 		boolean solved = string[n-1] == 0; //No bit is changed twice, so if the last bit is 0, we have a solution.
 		if(print) {
 			if(!solved) {
-				System.out.println("Could not solve at index " + (p+1));
+				System.out.println("Could not solve at index " + (p+1) + ".\nUnsolved string:\t");
 				printString();
 			}
 		}
@@ -133,17 +133,26 @@ public class Operations {
 	 * @return		the minimum cost of the valid solutions
 	 * @time		Generally O(n), O(n/k) or O(k) for some inputs n, k.
 	 */
-	public int improvedSolve() {
+	public int improvedSolve(boolean print) {
 		if(n <= k+1) {	//Anything is a solution with a single change action, return the minimum of all costs. This option is O(n).
 			int minCost = Integer.MAX_VALUE;
+			int bestIndex = 0;
 			for(int i = 0; i < n; i++) {	//O(n).
 				minCost = Math.min(minCost, costs[i]);
+				if(minCost == costs[i])
+					bestIndex = i+1;
 			}
+			if(print) System.out.println("Starting at " + bestIndex + " gives the best solution.");
 			return minCost;
 		}else if( n <= 2*k+1){ // n - 2*(n-k-1) <=> 2*k-n+2  many solutions, with a single flip. This option is O(k).
 			int minCost = Integer.MAX_VALUE;
-			for(int i = n-k-1; i < k+1; i++) 	//O(2k-n+2) for k < n < 2k+1, O(k) for worst n, k (n = 3k/2).
+			int bestIndex = 0;
+			for(int i = n-k-1; i < k+1; i++) { 	//O(2k-n+2) for k < n < 2k+1, O(k) for worst n, k (n = 3k/2).
 				minCost = Math.min(minCost, costs[i]);
+				if(minCost == costs[i])
+					bestIndex = i+1;
+			}
+			if(print) System.out.println("Starting at " + bestIndex + " gives the best solution.");
 			return minCost;
 		}else if(n%(2*k+1) == 0) {	//There's only 1 solution and it starts with index k+1. This option is O(n/k).
 			int totalCost = 0;
@@ -152,29 +161,38 @@ public class Operations {
 				totalCost += costs[index];
 				index+=2*k+1;
 			}
+			if(print) System.out.println("Starting at " + (k+1) + " gives the only solution.");
 			return totalCost;
 		}else {	//This option is O(n).
 			int totalSolutions = n%(2*k+1);	// There are that many solutions.
 			if(totalSolutions <= k+1) { // We have a solution starting with 1, and then 2, 3, 4, ..., totalSolutions. This option is O(n).
 				int minCost = Integer.MAX_VALUE;
+				int bestIndex = 0;
 				for(int i = 0; i < totalSolutions; i++) {	// Find the cost of each solution and get the minimum, this loop is O(k)
 					int currentCost = 0;
 					for(int j = i; j < n; j+= 2*k+1) {	//O(n/k);
 						currentCost += costs[j];
 					}
 					minCost = Math.min(minCost, currentCost);
+					if(minCost == currentCost)
+						bestIndex = i+1;
 				}
+				if(print) System.out.println("Starting at " + bestIndex + " gives the best solution.");
 				return minCost;
 			}else {	//We do not have a solution using the first bit. This option is also O(n).
 				int firstIndex = totalSolutions-k;	//There are not really totalSolutions many solutions in this case, sorry for bad naming.
 				int minCost = Integer.MAX_VALUE;
+				int bestIndex = 0;
 				for(int i = firstIndex-1; i < k+1; i++) {	//Iterate over the possible solutions, find the minimum. This loop is O(k).
 					int currentCost = 0;
 					for(int j = i; j < n; j+=2*k+1) { //O(n/k)
 						currentCost += costs[j];
 					}
 					minCost = Math.min(minCost, currentCost);
+					if(minCost == currentCost)
+						bestIndex = i+1;
 				}
+				if(print) System.out.println("Starting at " + bestIndex + " gives the best solution.");
 				return minCost;
 			}
 		}
@@ -186,11 +204,11 @@ public class Operations {
 	 */
 	public int optionSolve(boolean base) {
 		if(!base) 
-			return improvedSolve();
+			return improvedSolve(true);
 		return solve(true);
 	}
 	
 	public boolean compareAlgorithms() {
-		return solve() == improvedSolve();
+		return solve(false) == improvedSolve(false);
 	}
 }

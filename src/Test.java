@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class Test {
@@ -148,21 +149,24 @@ public class Test {
 			System.out.println("The test took " + elapsedTime + " milliseconds.");
 		}
 	}
+	
 	private static void customTest(Scanner sc) {
 		System.out.println("Enter n: ");
 		int n = sc.nextInt();
 		System.out.println("Enter k: ");
 		int k = sc.nextInt();
-		System.out.println("Enter costs as an n bit string: ");
+		System.out.println("Enter costs with a space in between: ");
 		sc.nextLine();
 		String costsStr = sc.nextLine();
-		while(costsStr.length() != n) {
+		String[] tokens = costsStr.split(" ");
+		while(tokens.length != n) {
 			System.out.println("Invalid string length. Please enter a string of lenth n: ");
 			costsStr = sc.nextLine();
+			tokens = costsStr.split(" ");
 		}
 		int[] costs = new int[n];
 		for(int i = 0; i < n; i++) {
-			costs[i] = Character.getNumericValue(costsStr.charAt(i));	//Put the String in an array.
+			costs[i] = Integer.parseInt(tokens[i]);
 		}
 		Operations o = new Operations(n, k, costs);
 		long startTime = System.nanoTime();
